@@ -7,10 +7,11 @@ module.exports = {
     theme: {
         extend: {
             colors: {
+                accent: Colors.coloraccent,
                 primary: Colors.colorprimary,
                 secondary: Colors.colorsecondary,
-                accent: Colors.coloraccent,
                 outline: Colors.coloroutline,
+                maintext: Colors.textprimary,
             },
         },
     },

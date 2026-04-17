@@ -3,7 +3,7 @@ import { Link } from 'expo-router';
 import { styled } from "nativewind";
 import { Text, View } from "react-native";
 import { SafeAreaView as RNSafeAreaView } from 'react-native-safe-area-context';
-import { Colors } from "../../constants/Colors";
+import { Colors } from "../constants/Colors";
 
 const SafeAreaView = styled(RNSafeAreaView);
 
@@ -13,7 +13,7 @@ export default function App() {
 
             <View className='display-flex flex-row justify-between'>
                 <Text className="text-2xl font-bold text-maintext">
-                    MusicLink
+                    Home
                 </Text>
                 <Link href="/welcome">
                     <ShareCircle color={Colors.coloraccent} />
