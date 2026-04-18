@@ -38,6 +38,18 @@
             "backgroundColor": "#000000"
           }
         }
+      ],
+      [
+        "expo-font",
+        {
+          "fonts": [
+            "./assets/fonts/LetteraMonoLL-Medium.otf",
+            "./assets/fonts/LetteraMonoLL-Regular.otf",
+            "./assets/fonts/Ndot-55.otf",
+            "./assets/fonts/NType82-Headline.otf",
+            "./assets/fonts/NType82-Regular.otf"
+          ]
+        }
       ]
     ],
     "experiments": {

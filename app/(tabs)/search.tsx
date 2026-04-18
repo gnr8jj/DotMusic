@@ -1,11 +1,24 @@
-import { Text, View } from 'react-native'
+import { Colors } from "@/../constants/Colors";
+import { ShareCircle } from '@solar-icons/react-native/Linear';
+import { Link } from 'expo-router';
+import { styled } from "nativewind";
+import { Text, View } from "react-native";
+import { SafeAreaView as RNSafeAreaView } from 'react-native-safe-area-context';
 
-const search = () => {
+const SafeAreaView = styled(RNSafeAreaView);
+
+export default function App() {
     return (
-        <View>
-            <Text>search</Text>
-        </View>
-    )
-}
+        <SafeAreaView className='flex-1 p-5 bg-background'>
 
-export default search
+            <View className='display-flex flex-row justify-between'>
+                <Text className="text-2xl font-bold text-maintext">
+                    Search
+                </Text>
+                <Link href="/welcome">
+                    <ShareCircle color={Colors.coloraccent} />
+                </Link>
+            </View>
+        </SafeAreaView>
+    );
+}

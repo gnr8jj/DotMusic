@@ -1,13 +1,24 @@
+import { ShareCircle } from '@solar-icons/react-native/Linear';
 import { Link } from 'expo-router';
-import { Text, View } from 'react-native';
+import { styled } from "nativewind";
+import { Text, View } from "react-native";
+import { SafeAreaView as RNSafeAreaView } from 'react-native-safe-area-context';
+import { Colors } from "../../constants/Colors";
 
-const library = () => {
+const SafeAreaView = styled(RNSafeAreaView);
+
+export default function App() {
     return (
-        <View>
-            <Text>library</Text>
-            <Link href="/">go back</Link>
-        </View>
-    )
-}
+        <SafeAreaView className='flex-1 p-5 bg-background'>
 
-export default library
+            <View className='display-flex flex-row justify-between'>
+                <Text className="text-2xl font-bold text-maintext">
+                    Library
+                </Text>
+                <Link href="/welcome">
+                    <ShareCircle color={Colors.coloraccent} />
+                </Link>
+            </View>
+        </SafeAreaView>
+    );
+}

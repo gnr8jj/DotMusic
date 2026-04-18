@@ -1,7 +1,26 @@
-import { Stack } from "expo-router";
+import { useFonts } from "expo-font";
+import { SplashScreen, Stack } from "expo-router";
+import { useEffect } from "react";
 import "../global.css";
 
 export default function RootLayout() {
+
+  const [fontsLoaded] = useFonts({
+    'letteramono-medium': require('../assets/fonts/LetteraMonoLL-Medium.otf'),
+    'letteramono-regular': require('../assets/fonts/LetteraMonoLL-Regular.otf'),
+    'ndot55': require('../assets/fonts/Ndot-55.otf'),
+    'ntype82-headline': require('../assets/fonts/Ntype82-Headline.otf'),
+    'ntype82-regular': require('../assets/fonts/Ntype82-Regular.otf')
+  });
+
+  useEffect(() => {
+    if (fontsLoaded) {
+      SplashScreen.hideAsync();
+    }
+  }, [fontsLoaded]);
+
+  if (!fontsLoaded) return null;
+
   return (
     <Stack screenOptions={{ headerShown: false }}>
       <Stack.Screen name="(tabs)" />

@@ -1,30 +1,24 @@
+import { ShareCircle } from '@solar-icons/react-native/Linear';
 import { Link } from 'expo-router';
 import { styled } from "nativewind";
-import { Text } from "react-native";
+import { Text, View } from "react-native";
 import { SafeAreaView as RNSafeAreaView } from 'react-native-safe-area-context';
+import { Colors } from "../../constants/Colors";
 
 const SafeAreaView = styled(RNSafeAreaView);
 
 export default function App() {
   return (
-    <SafeAreaView className='flex-1 p-5' bg-coloraccent> 
+    <SafeAreaView className='flex-1 p-5 bg-background'>
 
-      <Text className="text-xl font-bold text-maintext">
-        DotMusic
-      </Text>
-      <Link href="/welcome" className="text-maintext rounded bg-primary px-10 py-5 font-medium">
-        What
-      </Link>
-      <Link href="/welcome" className="text-maintext rounded bg-primary px-10 py-5 font-medium">
-        button2
-      </Link>
-      <Link href="/welcome" className="text-maintext rounded bg-primary px-10 py-5 font-medium">
-        button3
-      </Link>
-
-      <Link href="/librarytabs/[albums]" className="text-maintext rounded bg-primary px-10 py-5 font-medium">
-        BULLY - Kanye West
-      </Link>
+      <View className='display-flex flex-row justify-between'>
+        <Text className="text-2xl font-bold text-maintext">
+          Home
+        </Text>
+        <Link href="/welcome">
+          <ShareCircle color={Colors.coloraccent} />
+        </Link>
+      </View>
     </SafeAreaView>
   );
 }
