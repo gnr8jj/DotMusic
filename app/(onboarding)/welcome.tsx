@@ -1,11 +1,24 @@
-import { Text, View } from 'react-native'
+import { Link } from 'expo-router';
+import { styled } from "nativewind";
+import { Text, View, ImageBackground } from "react-native";
+import { SafeAreaView as RNSafeAreaView } from 'react-native-safe-area-context';
+import { Colors } from "../../constants/Colors";
 
-const onboarding = () => {
+const SafeAreaView = styled(RNSafeAreaView);
+
+export default function App() {
     return (
-        <View>
-            <Text>putanmgin</Text>
-        </View>
-    )
-}
+        <ImageBackground
+            source={require('../../assets/images/(onboarding)/onbdgbg.png')}
+            resizeMode='cover'
+            style={{ flex: 1 }}
+        >
 
-export default onboarding
+        <SafeAreaView>
+            
+        </SafeAreaView>
+
+        </ImageBackground>
+
+    );
+}

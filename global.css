@@ -30,3 +30,10 @@
     /* ito ang mga radius mo */
     --radius-putangina: 4px;
 }
+
+@layer utilities {
+    .tracking-tight-letteramono {
+        letter-spacing: -0.1em;
+    }
+
+}

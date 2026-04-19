@@ -1,4 +1,4 @@
-import { ShareCircle } from '@solar-icons/react-native/Linear';
+import { Settings } from '@solar-icons/react-native/Linear';
 import { Link } from 'expo-router';
 import { styled } from "nativewind";
 import { Text, View } from "react-native";
@@ -15,9 +15,6 @@ export default function App() {
                 <Text className="text-2xl font-bold text-maintext">
                     MusicLink
                 </Text>
-                <Link href="/welcome">
-                    <ShareCircle color={Colors.coloraccent} />
-                </Link>
             </View>
         </SafeAreaView>
     );
