@@ -17,5 +17,5 @@
     "expo-env.d.ts",
     "nativewind-env.d.ts",
     "constants/Colors.js"
-  ]
+, "constants/Theme.js"  ]
 }

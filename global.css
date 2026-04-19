@@ -6,11 +6,20 @@
 
 @theme {
     /* el colors */
-    --color-background: #F2F2F2;
-    --color-foreground: #FFFFFF;
-    --color-primary: #D71921;
-    --color-maintext: #000000;
-    --color-secondarytext: rgba(0, 0, 0, 0.6);
+    --color-primary: #F2F2F2;
+    --color-secondary: #FFFFFF;
+    --color-tertiary: #000000;
+    --color-accent: #D71921;
+    --color-outline: #000000;
+
+    --color-textprimary: #000000;
+    --color-textsecondary: rgba(0, 0, 0, 0.6);
+
+    --font-letteramono-medium: 'letteramono-medium';
+    --font-letteramono: 'letteramono';
+    --font-ndot55: 'ndot55';
+    --font-ntype82-headline: 'ntype82-headline';
+    --font-ntype82: 'ntype82';
 
     /* mi spacing, margin, padding */
     --spacing-tiny: 4px;
