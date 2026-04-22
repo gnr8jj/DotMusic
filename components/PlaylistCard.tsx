@@ -1,36 +1,49 @@
-import { Image, Text, TouchableOpacity, View } from 'react-native';
+import { Image, ImageSourcePropType, Text, TouchableOpacity, View } from 'react-native';
 
-// The "Dumb" component just receives the data
-export const PlaylistCard = ({ playlist }) => {
+// 1. Define the shape of your data
+// If you already made this in your Data.js (which should be renamed to Data.ts), 
+// you can import it instead of writing it here!
+interface Playlist {
+  id: number;
+  title: string;
+  tracks: number;
+  // ImageSourcePropType is the official React Native type for require() images
+  cover: ImageSourcePropType;
+}
+
+// 2. Define the Props for this specific component
+interface PlaylistCardProps {
+  playlist: Playlist;
+}
+
+// 3. Tell the component to use those props
+export const PlaylistCard = ({ playlist }: PlaylistCardProps) => {
   return (
-    // 'w-40' keeps the whole card a consistent width. Adjust as needed.
-    <TouchableOpacity activeOpacity={0.8} className="w-40 mr-4">
-      
+    <TouchableOpacity activeOpacity={0.8} className="w-35 h-50 bg-secondary p-3 rounded-2xl gap-3">
+
       {/* TOP SECTION: Image + Sideways Text */}
-      <View className="flex-row mb-2">
-        
-        {/* The Cover Image (Takes up most of the space) */}
-        <View className="flex-1 rounded-xl overflow-hidden bg-neutral-200 aspect-[3/4]">
-          <Image 
-            source={{ uri: playlist.coverUri }} 
+      <View className="flex-row h-32 gap-5">
+
+        {/* The Cover Image */}
+        <View className="flex-1 rounded-sm overflow-hidden bg-neutral-200">
+          <Image
+            source={playlist.cover}
             className="w-full h-full"
             resizeMode="cover"
           />
         </View>
 
-        {/* The Sideways Text Container */}
-        {/* w-8 gives it just enough horizontal space to exist */}
-        <View className="w-8 items-center justify-center">
-          {/* React Native rotates from the center, so we force it to not wrap */}
-          <Text 
-            // The magic rotation property
+        {/* The Vertical Text Container */}
+        {/* items-center is crucial here—it keeps the rotated box perfectly in the middle of this column */}
+        <View className="w-4 h-21 justify-center items-center">
+          <Text
+            // Stick to the standard center rotation. It is bulletproof.
             style={{ transform: [{ rotate: '90deg' }] }}
-            // numberOfLines={1} prevents it from breaking into multiple weird lines
             numberOfLines={1}
-            // Use your specific dotted/mono font here
-            className="font-letteramono tracking-widest text-xs text-black w-32 text-center"
+            // MATCH THE HEIGHT: We use w-30 so the text box is exactly as long as the image is tall
+            // text-center keeps the text perfectly aligned in the middle of the vertical strip
+            className="font-ndot55 text-xs text-black tracking-widest w-30 text-center"
           >
-            {/* Pad the ID so '1' becomes '01' */}
             PLAYLIST {String(playlist.id).padStart(2, '0')}
           </Text>
         </View>
@@ -38,17 +51,17 @@ export const PlaylistCard = ({ playlist }) => {
       </View>
 
       {/* BOTTOM SECTION: Title & Track Count */}
-      <View className="pr-8"> {/* Padding right so text doesn't go under the sideways text gap */}
-        <Text 
-          numberOfLines={1} 
-          className="font-ntype82 text-xl text-black mb-1"
+      <View className="">
+        <Text
+          numberOfLines={1}
+          className="font-ntype82 text-xl text-black leading-none"
           style={{ includeFontPadding: false }}
         >
           {playlist.title}
         </Text>
-        
-        <Text className="font-letteramono text-neutral-500 text-sm">
-          {playlist.trackCount} Tracks
+
+        <Text className="font-letteramono text-textsecondary text-xs lettering-tight" style={{ includeFontPadding: false }}>
+          {playlist.tracks} Tracks
         </Text>
       </View>
 
