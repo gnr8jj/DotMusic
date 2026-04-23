@@ -10,7 +10,8 @@ export default function RootLayout() {
     'letteramono': require('../assets/fonts/LetteraMonoLL-Regular.otf'),
     'ndot55': require('../assets/fonts/Ndot-55.otf'),
     'ntype82-headline': require('../assets/fonts/NType82-Headline.otf'),
-    'ntype82': require('../assets/fonts/NType82-Regular.otf')
+    'ntype82': require('../assets/fonts/NType82-Regular.otf'),
+    'inter': require('../assets/fonts/Inter.ttf')
   });
 
   useEffect(() => {
@@ -18,7 +19,7 @@ export default function RootLayout() {
       SplashScreen.hideAsync();
     }
   }, [fontsLoaded]);
- 
+
   if (!fontsLoaded) return null;
 
   return (

@@ -17,7 +17,7 @@ export default function App() {
                     placeholder="Search Library"
                     // value={username}
                     // onChangeText={setUsername}
-                    className="flex-1 ml-1 font-letteramono text-lg lettering-tight"
+                    className="flex-1 ml-1 font-letteramono text-lg lettering-tight text-black"
                     placeholderTextColor="#999"
                 />
             </View>

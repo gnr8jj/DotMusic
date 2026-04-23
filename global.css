@@ -20,6 +20,7 @@
     --font-ndot55: 'ndot55';
     --font-ntype82-headline: 'ntype82-headline';
     --font-ntype82: 'ntype82';
+    --font-inter: 'inter';
 
     /* mi spacing, margin, padding */
     --spacing-tiny: 4px;
@@ -40,7 +41,7 @@
         @apply flex-row w-full border border-outline items-center bg-white rounded-2xl px-4 h-13
     }
 
-    .debug{
+    .debug {
         @apply border-2 border-red-500 bg-red-500/20;
     }
 }

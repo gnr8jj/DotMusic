@@ -47,7 +47,8 @@
             "./assets/fonts/LetteraMonoLL-Regular.otf",
             "./assets/fonts/Ndot-55.otf",
             "./assets/fonts/NType82-Headline.otf",
-            "./assets/fonts/NType82-Regular.otf"
+            "./assets/fonts/NType82-Regular.otf",
+            "./assets/fonts/Inter.ttf"
           ]
         }
       ],
@@ -56,7 +57,11 @@
         {
           "photosPermission": "Allow $(PRODUCT_NAME) to access your photos.",
           "savePhotosPermission": "Allow $(PRODUCT_NAME) to save photos.",
-          "granularPermissions": ["audio", "photo", "video"]
+          "granularPermissions": [
+            "audio",
+            "photo",
+            "video"
+          ]
         }
       ]
     ],

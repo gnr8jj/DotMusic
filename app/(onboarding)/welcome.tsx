@@ -12,8 +12,6 @@ export default function App() {
 
     const router = useRouter();
 
-    // 2. Added a dummy function so the app doesn't crash when called!
-    // You will put your SQLite database logic inside here later.
     const startBackgroundLibraryIndexing = async () => {
         console.log("Indexing started in the background...");
     };
@@ -32,17 +30,12 @@ export default function App() {
     return (
         <View className="flex-1 bg-black">
 
-            {/* LAYER 1: Background Image */}
             <Image
                 source={require('../../assets/images/(onboarding)/onbdgbg.png')}
                 className="absolute w-full h-full"
                 resizeMode="cover"
             />
 
-            {/* LAYER 2: Bottom Image 
-                Moved this BEFORE the SafeAreaView so it doesn't block touches!
-                Also added 'pointer-events-none' just to be 100% safe.
-            */}
             <View className="items-center absolute bottom-0 w-full" pointerEvents="none">
                 <Image
                     source={require('../../assets/images/(onboarding)/onbdgpreview.png')}
@@ -51,24 +44,21 @@ export default function App() {
                 />
             </View>
 
-            {/* LAYER 3: Safe Area (Renders on top of everything) */}
             <SafeAreaView className="flex-1">
                 <View className='flex-1 py-3 px-5 justify-between'>
-
-                    {/* Top Section */}
                     <View className="items-center justify-center gap-2 mt-10 h-95">
                         <View className='items-center justify-center gap-4'>
                             <Image
-                            source={require('../../assets/images/(onboarding)/icon.png')}
-                            className="w-30 h-30"
-                        />
-                        <Heading>Welcome to DotMusic</Heading>
+                                source={require('../../assets/images/(onboarding)/icon.png')}
+                                className="w-30 h-30"
+                            />
+                            <Heading>Welcome to DotMusic</Heading>
                         </View>
                         <Text className="text-secondary font-letteramono lettering-tight w-85 text-center">
                             untouched. offline. a sacred place for your local music.
                         </Text>
                     </View>
-                    <Button label="Next" onPress={handleGrantPermission}/>
+                    <Button label="Next" onPress={handleGrantPermission} />
                 </View>
             </SafeAreaView>
         </View>
