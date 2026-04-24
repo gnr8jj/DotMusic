@@ -20,10 +20,10 @@ export default function App() {
                             source={require('../../assets/images/(onboarding)/icon.png')}
                             className="w-30 h-30"
                         />
-                        <Heading>Welcome to DotMusic</Heading>
+                        <Heading>What is MusicLink?</Heading>
                     </View>
                     <Text className="text-secondary font-letteramono lettering-tight w-85 text-center">
-                        untouched. offline. a sacred place for your local music.
+                        shared frequencies. sync your local archives with others in the vault.
                     </Text>
                 </View>
             </View>
