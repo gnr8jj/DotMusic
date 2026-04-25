@@ -58,7 +58,7 @@ export default function App() {
                             untouched. offline. a sacred place for your local music.
                         </Text>
                     </View>
-                    <Button label="Next" onPress={handleGrantPermission} />
+                    <Button label="Next" className='w-full' onPress={handleGrantPermission} />
                 </View>
             </SafeAreaView>
         </View>

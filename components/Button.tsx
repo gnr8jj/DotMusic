@@ -9,6 +9,7 @@ interface ButtonProps {
   rounded?: 'full' | 'lg';
   outline?: 'true' | 'false';
   icon?: ReactNode;
+  className?: string;
 }
 
 export const Button = ({
@@ -18,13 +19,14 @@ export const Button = ({
   size = 'md',
   rounded = 'full',
   outline = 'false',
-  icon
+  icon,
+  className = ''
 }: ButtonProps) => {
 
   const variants = {
     red: "bg-accent",
-    white: "bg-transparent",
-    black: "bg-secondary",
+    white: "bg-secondary",
+    black: "bg-tertiary",
   };
 
   const textColors = {
@@ -34,7 +36,7 @@ export const Button = ({
   };
 
   const sizes = {
-    md: "px-8 py-6",
+    md: "px-3 py-6",
     sm: "px-4 py-3",
   };
 
@@ -46,7 +48,7 @@ export const Button = ({
     <TouchableOpacity
       onPress={onPress}
       activeOpacity={0.8}
-      className={`flex-row items-center justify-center ${variants[variant]} ${sizes[size]} ${roundedStyle} w-full`}
+      className={`flex-row items-center justify-center ${variants[variant]} ${sizes[size]} ${roundedStyle}`}
     >
       {icon && <View className="mr-2">{icon}</View>}
 
