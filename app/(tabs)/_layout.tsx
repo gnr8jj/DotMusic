@@ -2,56 +2,50 @@ import { Home, Library, Magnifier, ShareCircle } from '@solar-icons/react-native
 import { Tabs } from "expo-router";
 import React, { useEffect, useRef } from "react";
 import { Animated } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Colors } from "../../constants/Colors";
 
 const AnimatedIcon = ({ focused, children }: { focused: boolean, children: React.ReactNode }) => {
     const scale = useRef(new Animated.Value(1)).current;
-    const opacity = useRef(new Animated.Value(1)).current;
 
     useEffect(() => {
         if (focused) {
+            // 1. Stop any stuck animations before starting a new one
+            scale.stopAnimation();
+
+            // 2. Queue the ENTIRE sequence on the Native Thread
             Animated.sequence([
-                Animated.parallel([
-                    Animated.timing(scale, {
-                        toValue: 0.8,    // Shrinks to 80% size
-                        duration: 100,   // Extremely fast (100ms)
-                        useNativeDriver: true,
-                    }),
-                    Animated.timing(opacity, {
-                        toValue: 0.4,    // Drops to 40% opacity
-                        duration: 100,
-                        useNativeDriver: true,
-                    })
-                ]),
-                // STEP 2: The "Snap Back" (Return to normal)
-                Animated.parallel([
-                    Animated.spring(scale, {
-                        toValue: 1,      // Back to 100% size
-                        friction: 4,     // Keeps that nice bouncy finish
-                        tension: 80,
-                        useNativeDriver: true,
-                    }),
-                    Animated.timing(opacity, {
-                        toValue: 1,      // Back to 100% opacity
-                        duration: 150,   // Smooth fade back in
-                        useNativeDriver: true,
-                    })
-                ])
+                // The Native Squish (50ms is so fast it looks instant, but protects the thread)
+                Animated.timing(scale, {
+                    toValue: 0.7,
+                    duration: 50,
+                    useNativeDriver: true, // Native driver handles it!
+                }),
+                // The Native Bounce
+                Animated.spring(scale, {
+                    toValue: 1,
+                    friction: 4,
+                    tension: 100,
+                    useNativeDriver: true, // Native driver handles it!
+                })
             ]).start();
         } else {
+            // Reset silently when clicking away
             scale.setValue(1);
-            opacity.setValue(1);
         }
     }, [focused]);
 
     return (
-        <Animated.View style={{ transform: [{ scale }], opacity }}>
+        <Animated.View style={{ transform: [{ scale }] }}>
             {children}
         </Animated.View>
     );
 };
 
 export default function TabLayout() {
+
+    const insets = useSafeAreaInsets();
+
     return (
         <Tabs
             screenOptions={{
@@ -63,8 +57,8 @@ export default function TabLayout() {
 
                 tabBarStyle: {
                     position: 'absolute',
-                    marginHorizontal: 20,
-                    bottom: 30,
+                    marginHorizontal: 17,
+                    bottom: Math.max(insets.bottom, 25),
                     height: 70,
                     borderRadius: 100,
                     borderTopWidth: 0,
