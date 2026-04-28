@@ -4,7 +4,7 @@ import { Text, TouchableOpacity, View } from 'react-native';
 interface ButtonProps {
   label: string;
   onPress: () => void;
-  variant?: 'red' | 'black' | 'white';
+  variant?: 'red' | 'black' | 'white' | 'gray';
   size?: 'md' | 'sm';
   rounded?: 'full' | 'lg';
   outline?: 'true' | 'false';
@@ -27,12 +27,14 @@ export const Button = ({
     red: "bg-accent",
     white: "bg-secondary",
     black: "bg-tertiary",
+    gray: "bg-neutral-300",
   };
 
   const textColors = {
     red: "text-white",
     white: "text-tertiary",
     black: "text-secondary",
+    gray: "text-white",
   };
 
   const sizes = {

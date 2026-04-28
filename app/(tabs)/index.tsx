@@ -40,14 +40,15 @@ export default function App() {
             </TouchableOpacity>
 
           </View>
+          // Inside your index.tsx
           <FlatList
             className="-mx-5"
-            contentContainerClassName="gap-4 px-5"
+            contentContainerClassName="gap-3 px-5"
             horizontal
             showsHorizontalScrollIndicator={false}
             data={RECENTLY_PLAYED.slice(0, 8)}
             keyExtractor={(item) => item.id.toString()}
-            renderItem={({ item }) => <MediaCard item={item} />}
+            renderItem={({ item }) => <MediaCard item={item} className="w-35" />}
           />
         </View>
 
@@ -63,12 +64,12 @@ export default function App() {
           </View>
           <FlatList
             className="-mx-5"
-            contentContainerClassName="gap-4 px-5"
+            contentContainerClassName="gap-3 px-5"
             horizontal
             showsHorizontalScrollIndicator={false}
             data={RECENTLY_PLAYED.slice(0, 8)}
             keyExtractor={(item) => item.id.toString()}
-            renderItem={({ item }) => <MediaCard item={item} />}
+            renderItem={({ item }) => <MediaCard item={item} className="w-35" />}
           />
         </View>
 
@@ -96,6 +97,12 @@ export default function App() {
         <View className='debug flex-1 flex-row'>
           <Link className='p-5' href="/(onboarding)/welcome">onboarding test</Link>
           <Link className='p-5' href="/(onboarding)/createprofile">createprofile test</Link>
+        </View>
+
+        <View className='debug flex-1 flex-row'>
+          <Link className='p-5' href="/(musiclink)/joininput">join input</Link>
+          <Link className='p-5' href="/(musiclink)/hostlobby">host</Link>
+          <Link className='p-5' href="/(musiclink)/joinlobby">lobby</Link>
         </View>
       </ScrollView>
     </SafeAreaView>

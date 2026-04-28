@@ -13,11 +13,12 @@
     --color-outline: #0000002D;
 
     --color-textprimary: #000000;
-    --color-textsecondary: rgba(0, 0, 0, 0.6);
+    --color-textsecondary: #0000008D;
 
     --font-letteramono-medium: 'letteramono-medium';
     --font-letteramono: 'letteramono';
     --font-ndot55: 'ndot55';
+    --font-ndot57: 'ndot57';
     --font-ntype82-headline: 'ntype82-headline';
     --font-ntype82: 'ntype82';
     --font-inter: 'inter';

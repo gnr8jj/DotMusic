@@ -24,7 +24,7 @@ export default function App() {
     const [isModalVisible, setIsModalVisible] = useState(false);
     const [agreed, setAgreed] = useState(false);
 
-    // --- FEATURE: Upload from Gallery ---
+    // upload from gallery
     //   const pickImage = async () => {
     //     const result = await ImagePicker.launchImageLibraryAsync({
     //       mediaTypes: ImagePicker.MediaTypeOptions.Images,
@@ -36,7 +36,7 @@ export default function App() {
     //     if (!result.canceled) {
     //       const sourceUri = result.assets[0].uri;
 
-    //       // Permanently save to app documents (so it's truly "local" and offline)
+    //       permanently save to app documents
     //       const fileName = `profile_${Date.now()}.jpg`;
     //       const destUri = `${FileSystem.documentDirectory}${fileName}`;
 
@@ -46,7 +46,7 @@ export default function App() {
     //     }
     //   };
 
-    // --- FEATURE: Select Pre-made Icon ---
+    // select from pre-made icon
     //   const selectPreset = (iconAsset) => {
     //     // For local assets, the URI is actually a module ID
     //     setImage(Image.resolveAssetSource(iconAsset).uri);
@@ -57,7 +57,7 @@ export default function App() {
         <SafeAreaView className='flex-1 p-5 bg-primary gap-7'>
 
             <View className='display-flex flex-col justify-between gap-5'>
-                <ArrowLeft size={30}/>
+                <ArrowLeft size={30} />
                 <Heading className='text-tertiary'>What should we call you?</Heading>
             </View>
 
@@ -101,7 +101,6 @@ export default function App() {
                         <TouchableOpacity
                             onPress={() => setAgreed(!agreed)}
                             activeOpacity={0.8}
-                            // The Checkbox Box
                             className={`w-6 h-6 rounded-md border-1 items-center mb-1 justify-center ${agreed ? 'bg-accent border-accent' : 'border-outline bg-secondary'
                                 }`}
                         >
@@ -112,7 +111,7 @@ export default function App() {
                             <Text className="text-black font-letteramono text-sm lettering-tight leading-5">
                                 I have read and agree to the{' '}
                                 <Text
-                                    onPress={() => Linking.openURL('https://your-terms-link.com')}
+                                    onPress={() => Linking.openURL('https://youtube.com')}
                                     className="text-accent underline font-letteramono lettering-tight text-sm"
                                 >
                                     Terms and Conditions
@@ -122,7 +121,7 @@ export default function App() {
                     </View>
                 </View>
 
-                <Button label="Enter App"/>
+                <Button label="Enter App" />
             </View>
 
         </SafeAreaView>

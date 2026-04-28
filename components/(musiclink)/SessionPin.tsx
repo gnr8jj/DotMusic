@@ -6,29 +6,29 @@ interface SessionPinProps {
   subtitle?: string;
 }
 
-export const SessionPin = ({ 
-  pin, 
-  title = "Your Session PIN", 
-  subtitle 
+export const SessionPin = ({
+  pin,
+  title = "Your Session PIN",
+  subtitle
 }: SessionPinProps) => {
-  const paddedPin = pin.padEnd(6, '•').split(''); 
+  const paddedPin = pin.padEnd(6, '-').split('');
 
   return (
-    <View className="items-center w-full">
-      <Text className="font-letteramono text-lg tracking-tighter mb-4">
+    <View className="items-center w-full gap-3">
+      <Text className="font-letteramono text-lg lettering-tight">
         {title}
       </Text>
-      
+
       <View className="flex-row gap-2 justify-center w-full">
         {paddedPin.map((digit, index) => {
-          const isPlaceholder = digit === '•';
-          
+          const isPlaceholder = digit === '-';
+
           return (
-            <View 
-              key={index} 
-              className="w-[14%] aspect-[3/4] border border-neutral-300 rounded-2xl items-center justify-center bg-transparent"
+            <View
+              key={index}
+              className="w-[15%] aspect-[4/6] border border-neutral-300 rounded-2xl items-center justify-center bg-secondary"
             >
-              <Text className={`font-ndot55 text-3xl pt-2 ${isPlaceholder ? 'text-neutral-300' : 'text-black'}`}>
+              <Text className={`font-ndot57 text-3xl pt-2 ${isPlaceholder ? 'text-neutral-300' : 'text-black'}`}>
                 {digit}
               </Text>
             </View>
@@ -37,7 +37,7 @@ export const SessionPin = ({
       </View>
 
       {subtitle && (
-        <Text className="font-letteramono text-center text-sm tracking-tighter text-black mt-6 px-4">
+        <Text className="font-letteramono text-center w-80 text-sm lettering-tight text-black leading-none">
           {subtitle}
         </Text>
       )}
